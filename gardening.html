@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gardening Assistant · Daksha Arvind</title>
+  <meta name="description" content="A simple app that tells beginners how their plant is doing and what native plants to try next. Senior capstone case study.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d4532b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-style='italic' font-size='38' text-anchor='middle' fill='%23fff'%3Ed%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove("no-js")</script>
+</head>
+<body class="p-gd">
+
+<header class="wrap nav">
+  <a class="nav-name" href="index.html">Daksha Arvind</a>
+  <nav><ul><li><a href="index.html#work">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+</header>
+
+<main>
+  <div class="wrap cs-top">
+    <a class="back" href="index.html#work">← All projects</a>
+    <div class="cs-eyebrow">
+      <span class="eyebrow">Sustainability · Consumer Mobile · Team of 5</span>
+      <span class="status wip">In progress</span>
+    </div>
+    <h1 class="cs-title">Gardening Assistant</h1>
+    <p class="cs-sub">Most people don't kill plants on purpose. A simple app that tells you how your plant is doing and what to plant next.</p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Product and Coding Lead</dd></div>
+      <div><dt>Org</dt><dd>Senior Capstone</dd></div>
+    </dl>
+
+    <figure class="cs-hero">
+      <img src="assets/gardening/gd-hero.jpg" alt="Three concept phone screens on a green panel: Scan a plant with a camera viewfinder, a Needs help health result with two next steps, and Native picks for Southern California gardens">
+    </figure>
+    <p class="cs-cap">Concept screens: scan, health result, native picks.</p>
+  </div>
+
+  <div class="wrap-text">
+
+    <!-- 01 -->
+    <section class="cs-section reveal">
+      <p class="num-label">01 / The Problem</p>
+      <h2>Plant advice is written for people who already know plants.</h2>
+      <p class="lead">Online plant advice is either too generic ("water when dry") or too expert (pages of disease names and photos you have to match yourself). Neither helps someone staring at a sad-looking plant on their windowsill.</p>
+      <blockquote class="pull">
+        <small>Problem statement</small>
+        Beginners want one answer: is my plant okay? And if it isn't, what do I do right now?
+      </blockquote>
+      <div class="stats">
+        <div class="stat"><b>5</b><strong>Teammates</strong><span>Senior capstone team</span></div>
+        <div class="stat"><b>2</b><strong>Health states</strong><span>Happy or needs help</span></div>
+        <div class="stat"><b>?</b><strong>Model accuracy</strong><span> ONGOING </span></div>
+        <div class="stat"><b>?</b><strong>User interviews</strong><span> ONGOING </span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section reveal">
+      <p class="num-label">02 / Research &amp; Findings</p>
+      <h2>What we're designing around.</h2>
+      <p>We're early. These are the assumptions shaping the first version, not findings yet.</p>
+      <div class="cards c2">
+        <div class="card"><h4>Advice is too generic or too expert</h4><p>There's not much in between for someone who just wants to keep one plant alive.</p></div>
+        <div class="card"><h4>Beginners want one answer first</h4><p>"Is it okay?" comes before "what's wrong with it?"</p></div>
+        <div class="card"><h4>Disease ID is a hard first step</h4><p>Hard to train in a semester, and not what beginners ask for first.</p></div>
+        <div class="card"><h4>Native plants are easier to keep alive</h4><p>They're adapted to local weather, so they forgive more mistakes.</p></div>
+        <div class="card"><h4>A bad score alone just causes worry</h4><p>"Needs help" with no next step is worse than no answer at all.</p></div>
+        <div class="card"><h4>The camera is the easiest input</h4><p>Pointing a phone at a plant is easier than describing what's wrong with it.</p></div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="cs-section reveal">
+      <p class="num-label">03 / Strategic Insights</p>
+      <h2>3 principles that shape the design.</h2>
+      <ol class="principles">
+        <li><div><strong>A score, not a diagnosis</strong><span>Answer the beginner's actual question before trying to be a plant doctor.</span></div></li>
+        <li><div><strong>Native plants are easier to keep alive</strong><span>So recommending them is part of the product, not a side feature.</span></div></li>
+        <li><div><strong>"Needs help" always comes with a next step</strong><span>Never leave someone with a bad score and nothing to do.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section reveal">
+      <p class="num-label">04 / The Solution</p>
+      <h2>Scan it, get a score, know what to do.</h2>
+      <p>The Gardening Assistant monitors plant wellbeing, uses computer vision to score health as "happy" or "needs help," and recommends native plants. The health indicator is a leaf badge: upright and green when things are fine, drooping and amber when they're not.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/gardening/gd-flow.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/gardening/gd-flow.png" alt="Flow: photo input, computer vision model, two-state score of Happy or Needs help, and always a next step" loading="lazy"></a>
+      <figcaption>How a scan works. One question in, one answer and one action out.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/gardening/gd-health-states.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/gardening/gd-health-states.png" alt="Two result cards. Happy with a green upright leaf badge and a next step to scan again next week. Needs help with an amber drooping leaf badge and a next step to check the soil and scan again in 3 days." loading="lazy"></a>
+      <figcaption>The leaf badge, in both states. Concept copy, not final.</figcaption>
+    </figure>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <span>© 2026 Daksha Arvind</span>
+    <nav><a href="mailto:dakshabarvind@gmail.com">Email</a> <a href="https://www.linkedin.com/in/daksha024/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/Dakshaarvind" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

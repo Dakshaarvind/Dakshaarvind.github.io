@@ -1,0 +1,38 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;background:#eef3f2;padding:44px 52px 48px}
+.app{background:#fff;border-radius:18px;border:1px solid #d9e3e1;overflow:hidden}
+.top{display:flex;align-items:center;gap:16px;padding:18px 24px;border-bottom:1px solid #e6ecea}
+.top b{font-family:"Plus Jakarta Sans";font-size:18px}
+.top .sess{font-size:13px;color:#6b7a77}
+.sim{margin-left:auto;background:#fff4d6;color:#7a5600;border:1px solid #f2d27a;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:999px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#e6ecea}
+.ch{background:#fff;padding:20px 24px 14px}
+.ch h4{font-family:Inter;font-size:14px;font-weight:600;letter-spacing:0;color:#17150f}
+.ch .u{font-size:12px;color:#6b7a77;margin-top:2px}
+.ch .v{float:right;font-family:"Plus Jakarta Sans";font-weight:800;font-size:22px;color:#17150f;margin-top:-6px}
+.ch .v small{font-family:Inter;font-weight:500;font-size:12px;color:#6b7a77;margin-left:4px}
+.foot{display:flex;justify-content:space-between;padding:14px 24px;font-size:12px;color:#6b7a77;border-top:1px solid #e6ecea}
+</style></head>
+<body data-out="multi-sensor/ms-dashboard.png"><div id="frame"><div class="app">
+<div class="top"><b>Research dashboard</b><span class="sess">Concept · 4 signals side by side</span><span class="sim">Simulated data · not study results</span></div>
+<div class="grid" id="g"></div>
+<div class="foot"><span>Shared time axis so researchers can spot correlations across signals</span><span>Values generated for illustration only</span></div>
+</div></div>
+<script>
+// Deterministic fake series. Not real measurements.
+let seed=7;const rnd=()=>((seed=(seed*16807)%2147483647)/2147483647);
+function series(base,amp,drift,noise){const a=[];for(let i=0;i<=60;i++){a.push(base+amp*Math.sin(i/9+base)+drift*i/60+(rnd()-.5)*noise)}return a}
+const C=[["Humidity","%RH",series(48,4,6,1.6),"%RH"],["Skin temperature","°C",series(33.2,.25,.5,.12),"°C"],["Input current","µA",series(2.4,.3,.4,.12),"µA"],["Output current","µA",series(1.6,.25,.6,.1),"µA"]];
+const w=520,h=190,pl=40,pb=24,pt=8;
+document.getElementById("g").innerHTML=C.map(([t,u,d,unit])=>{
+ const mn=Math.min(...d),mx=Math.max(...d),pad=(mx-mn)*.25,lo=mn-pad,hi=mx+pad;
+ const X=i=>pl+(w-pl-8)*i/60,Y=v=>pt+(h-pt-pb)*(1-(v-lo)/(hi-lo));
+ const dec=hi-lo<3?2:0, fmt=v=>v.toFixed(hi-lo<3?(hi-lo<1?2:1):0);
+ let g="";for(let k=0;k<=3;k++){const v=lo+(hi-lo)*k/3,y=Y(v);g+=`<line x1="${pl}" x2="${w-8}" y1="${y}" y2="${y}" stroke="#eef2f1"/><text x="${pl-8}" y="${y+4}" text-anchor="end" font-size="10" fill="#8a9895" font-family="Inter">${fmt(v)}</text>`}
+ for(let m=0;m<=30;m+=10){const x=X(m*2);g+=`<text x="${x}" y="${h-6}" text-anchor="${m===30?"end":"middle"}" font-size="10" fill="#8a9895" font-family="Inter">${m} min</text>`}
+ const p=d.map((v,i)=>`${i?"L":"M"}${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join("");
+ const last=d[d.length-1];
+ return `<div class="ch"><span class="v">${fmt(last)}<small>${unit}</small></span><h4>${t}</h4><div class="u">${u} · last 30 min</div>
+ <svg viewBox="0 0 ${w} ${h}" width="100%" style="margin-top:8px;display:block">${g}<path d="${p}" fill="none" stroke="#0d9488" stroke-width="2" stroke-linejoin="round"/><circle cx="${X(60)}" cy="${Y(last)}" r="4" fill="#0d9488" stroke="#fff" stroke-width="2"/></svg></div>`}).join("");
+</script></body></html>

@@ -1,0 +1,59 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;background:#faf7f2;padding:52px 56px 48px}
+.lbl{font-size:12px;color:#7c3aed}
+h3{font-size:26px;margin:10px 0 6px}
+.intro{font-size:15px;color:#4a463e;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid #e4ddd0;border-radius:16px;overflow:hidden;font-size:13.5px}
+th,td{padding:11px 10px;text-align:center;border-bottom:1px solid #efe9de}
+tr:last-child td,tr:last-child th{border-bottom:0}
+thead th{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7a756b;background:#f7f3ec}
+tbody th{text-align:left;padding-left:18px;font-family:"Plus Jakarta Sans";font-size:14.5px;color:#1e1b4b;white-space:nowrap}
+td i{display:inline-block;width:10px;height:10px;border-radius:50%;background:#e9e4f7}
+td.d i{width:16px;height:16px;background:#7c3aed;box-shadow:0 0 0 4px #ede9fe}
+.legend{display:flex;gap:18px;margin-top:12px;font-size:12.5px;color:#7a756b;align-items:center}
+.legend span{display:flex;align-items:center;gap:7px}
+.legend i{width:10px;height:10px;border-radius:50%;background:#e9e4f7;display:inline-block}
+.legend i.d{background:#7c3aed}
+.right{display:grid;gap:12px;align-content:start}
+.q{border-radius:14px;padding:16px 18px;background:#fff;border:1px solid #e4ddd0}
+.q .who{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7c3aed}
+.q p{font-size:14.5px;color:#2b2740;margin-top:6px;line-height:1.5}
+.q.hot{border-color:#f9a8d4;background:#fff7fb}.q.hot .who{color:#db2777}
+.style{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.style div{border:1px solid #e4ddd0;border-radius:12px;padding:12px;background:#fff;text-align:center}
+.style div.on{border:2px solid #7c3aed;background:#f5f3ff}
+.style b{font-family:"Plus Jakarta Sans";font-size:15px;display:block;color:#1e1b4b}
+.style small{font-size:11.5px;color:#7a756b}
+.sub{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#7a756b;margin:6px 0 -2px}
+</style></head>
+<body data-out="startnow/sn-persona.png"><div id="frame">
+<div class="lbl">Agent design</div>
+<h3>Persona = role × temperament.</h3>
+<p class="intro">Six seats, five temperaments. The role decides what an agent cares about. The temperament decides how hard it pushes.</p>
+<div class="grid">
+<div>
+<table>
+<thead><tr><th></th><th>Neutral</th><th>Cautious</th><th>Optimistic</th><th>Skeptical</th><th>Supportive</th></tr></thead>
+<tbody>
+<tr><th>PM</th><td class="d"><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+<tr><th>CTO</th><td><i></i></td><td class="d"><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td></tr>
+<tr><th>Investor</th><td><i></i></td><td><i></i></td><td><i></i></td><td class="d"><i></i></td><td><i></i></td></tr>
+<tr><th>Marketer</th><td><i></i></td><td><i></i></td><td class="d"><i></i></td><td><i></i></td><td><i></i></td></tr>
+<tr><th>CEO</th><td><i></i></td><td><i></i></td><td><i></i></td><td><i></i></td><td class="d"><i></i></td></tr>
+<tr><th>Unpaid Intern</th><td colspan="5" style="font-size:12.5px;color:#7a756b">scatterbrained · mostly lost, occasionally a genius idea</td></tr>
+</tbody>
+</table>
+<div class="legend"><span><i class="d"></i>Default seat</span><span><i></i>User can swap in</span></div>
+</div>
+<div class="right">
+  <div class="sub">What each role is told it's for</div>
+  <div class="q"><div class="who">PM</div><p>"Make sure we build the right thing, not just what sounds cool."</p></div>
+  <div class="q"><div class="who">CTO</div><p>"Can we actually ship this? Can we scale it if it works?"</p></div>
+  <div class="q hot"><div class="who">Investor</div><p>"Not here to be a cheerleader. Push for proof, not hope."</p></div>
+  <div class="sub">Plus one dial for the whole room</div>
+  <div class="style"><div><b>Supportive</b><small>Encouraging</small></div><div class="on"><b>Realistic</b><small>Balanced</small></div><div><b>Harsh</b><small>Investor-level</small></div></div>
+</div>
+</div>
+</div></body></html>

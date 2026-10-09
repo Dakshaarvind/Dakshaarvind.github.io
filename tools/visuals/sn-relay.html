@@ -1,0 +1,66 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;background:#faf7f2;padding:52px 56px 48px}
+h3{font-size:26px;margin:10px 0 6px}
+.lbl{font-size:12px;color:#7c3aed}
+.intro{font-size:15px;color:#4a463e;margin-bottom:30px}
+.row{display:grid;grid-template-columns:repeat(6,1fr);gap:0;align-items:stretch;position:relative}
+.n{position:relative;margin-right:28px;border-radius:14px;padding:14px 14px 13px;background:#fff;border:1px solid #e4ddd0}
+.n:last-child{margin-right:0}
+.n:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;width:20px;height:2px;background:#a78bfa}
+.n:not(:last-child)::before{content:"";position:absolute;right:-26px;top:calc(50% - 4px);border:5px solid transparent;border-left:7px solid #a78bfa}
+.n b{font-family:"Plus Jakarta Sans";font-size:16px;display:block;color:#1e1b4b}
+.n small{display:block;font-size:12px;color:#7a756b;margin-top:2px}
+.n.user{background:#1e1b4b;border-color:#1e1b4b}.n.user b{color:#fff}.n.user small{color:#c4b5fd}
+.n .t{display:inline-block;margin-top:9px;font-size:10.5px;font-weight:600;letter-spacing:.06em;color:#6d28d9;background:#ede9fe;border-radius:999px;padding:3px 8px}
+.carry{display:grid;grid-template-columns:repeat(6,1fr);margin-top:10px;font-size:11.5px;color:#7c3aed;font-family:"JetBrains Mono"}
+.carry span{padding-left:4px}
+.inject{margin-top:22px;display:flex;align-items:center;gap:12px;font-size:14px;color:#4a463e;border:1px dashed #cfc6b5;border-radius:12px;padding:12px 16px}
+.inject b{color:#1e1b4b}
+.inject i{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#db2777;background:#fce7f3;padding:4px 9px;border-radius:999px}
+.bottom{display:grid;grid-template-columns:1fr 1.35fr;gap:18px;margin-top:22px}
+.box{border-radius:16px;padding:22px 24px}
+.feed{background:#fff;border:1px solid #e4ddd0}
+.syn{background:#1e1b4b;color:#ede9fe}
+.box .lbl{margin-bottom:8px}.syn .lbl{color:#c4b5fd}
+.box h4{font-size:19px;margin-bottom:8px}
+.box p{font-size:14px;line-height:1.55;color:#4a463e}.syn p{color:#c4b5fd}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.chips span{background:rgba(255,255,255,.08);border:1px solid rgba(196,181,253,.3);border-radius:10px;padding:9px 12px;font-size:13.5px;color:#fff}
+.chips small{display:block;color:#a5a0c8;font-size:11.5px;margin-top:1px}
+.steps{margin-top:12px;display:grid;gap:7px;font-size:13.5px;color:#4a463e}
+.steps div{display:grid;grid-template-columns:22px 1fr;gap:8px}
+.steps div::before{content:"→";color:#7c3aed;font-weight:700}
+code{font-family:"JetBrains Mono";font-size:12px;background:#f1eefb;color:#5b21b6;padding:1px 6px;border-radius:5px}
+</style></head>
+<body data-out="startnow/sn-relay.png"><div id="frame">
+<div class="lbl">How a round works</div>
+<h3>A relay, not a broadcast.</h3>
+<p class="intro">Each agent answers the agent before it, not just the pitch. That's where the pushback comes from.</p>
+<div class="row">
+  <div class="n user"><b>You</b><small>The pitch</small><span class="t" style="background:#4c1d95;color:#ddd6fe">kickoff</span></div>
+  <div class="n"><b>PM</b><small>neutral</small><span class="t">ASI:One Mini</span></div>
+  <div class="n"><b>CTO</b><small>cautious</small><span class="t">ASI:One Mini</span></div>
+  <div class="n"><b>Investor</b><small>skeptical</small><span class="t">ASI:One Mini</span></div>
+  <div class="n"><b>Marketer</b><small>optimistic</small><span class="t">ASI:One Mini</span></div>
+  <div class="n"><b>CEO</b><small>supportive</small><span class="t">ASI:One Mini</span></div>
+</div>
+<div class="carry"><span></span><span>← reads pitch</span><span>← reads PM</span><span>← reads CTO</span><span>← reads Investor</span><span>← reads Marketer</span></div>
+<div class="inject"><i>Anytime</i><span><b>You interject as the boss.</b> Your message restarts the relay, and the board adapts to it.</span></div>
+<div class="bottom">
+  <div class="box feed"><div class="lbl">While it runs</div><h4>Watch it, don't wait for it</h4>
+    <div class="steps">
+      <div><span>Each uAgent posts its reply to the Flask backend the moment it lands</span></div>
+      <div><span>React polls the feed, so messages appear one by one, like a real meeting</span></div>
+      <div><span>Replies capped at <code>100 tokens</code>: a conversation, not five essays</span></div>
+    </div></div>
+  <div class="box syn"><div class="lbl">When it ends</div><h4>Gemini 2.0 Flash reads the whole transcript</h4>
+    <p>A second model with a different job: long-context synthesis, not personality.</p>
+    <div class="chips">
+      <span>Executive brief<small>PDF, 8 sections</small></span>
+      <span>Pitch deck<small>7 slides, transcript only</small></span>
+      <span>Investor Q&amp;A<small>CAC vs LTV, moats, more</small></span>
+      <span>Risk map<small>Tech, market, funding · 0 to 10</small></span>
+    </div></div>
+</div>
+</div></body></html>

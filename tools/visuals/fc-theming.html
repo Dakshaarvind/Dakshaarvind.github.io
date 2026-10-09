@@ -1,0 +1,37 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"><link rel="stylesheet" href="_fc.css">
+<style>
+#frame{width:1200px;padding:56px 56px 52px;background:#faf7f2}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:34px}
+.head h2{font-size:30px;font-weight:800}
+.head .code{font-family:"JetBrains Mono";font-size:15px;background:#17150f;color:#f2ede4;padding:10px 16px;border-radius:10px}
+.head .code b{color:#ffb38a;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.col{background:#fff;border:1px solid #e4ddd0;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.col .pass{width:100%;height:150px;padding:16px;border-radius:14px}
+.col .pass .name{font-size:16px;margin-top:22px}
+.col .pass .crest{width:30px;height:30px;font-size:10px}
+.col .pass .kind{font-size:8px;padding:4px 7px}
+.col .pass .verified{font-size:10px;right:14px;bottom:12px;padding:4px 8px}
+.col .pass .row{display:none}
+.col .pass::after{width:140px;height:140px;border-width:22px;right:-50px;top:-50px}
+.col .bub{max-width:100%;font-size:12px}
+.mstep{display:flex;gap:6px}.mstep i{flex:1;height:6px;border-radius:3px;background:var(--club)}.mstep i:last-child{opacity:.25}
+.col .btn{margin:0;justify-content:center;padding:10px;font-size:12px}
+.var{font-family:"JetBrains Mono";font-size:12px;color:#6b675f;display:flex;gap:8px;align-items:center}
+.var i{width:14px;height:14px;border-radius:4px;background:var(--club);display:block}
+.legend{display:flex;gap:26px;margin-top:22px;font-size:13px;color:#7a756b}
+</style></head>
+<body data-out="fan-concierge/fc-theming.png"><div id="frame">
+<div class="head"><h2>Same components. Four clubs.</h2><div class="code"><b>--club</b>: #d71920;</div></div>
+<div class="grid" id="g"></div>
+<div class="legend"><span>Rows, top to bottom: pass card · chat bubble · stepper · primary button</span></div>
+</div>
+<script src="_fc.js"></script><script>
+const hex={sufc:"#d71920",qpr:"#1d4f9c",ccfc:"#0b7cc6",swans:"#121212"};
+document.getElementById("g").innerHTML=Object.entries(CLUBS).map(([k,c])=>`<div class="col ${c.cls}">
+<div class="var"><i></i>--club: ${hex[k]}</div>
+<div class="pass"><div class="top"><div class="crest">${c.init}</div><span class="kind">Season ticket</span></div><div class="name">${c.name}</div><span class="verified">✓ Verified</span></div>
+<div class="bub me">What do I need for Saturday?</div>
+<div class="mstep"><i></i><i></i><i></i><i></i></div>
+<div class="btn">Link season ticket →</div></div>`).join("");
+</script></body></html>

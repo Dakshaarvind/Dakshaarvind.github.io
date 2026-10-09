@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"><link rel="stylesheet" href="_gd.css">
+<style>
+#frame{width:1200px;height:900px;background:radial-gradient(110% 90% at 50% 0%,#3d7249 0%,#2f5d3a 55%,#264d30 100%);display:flex;justify-content:center;align-items:center;gap:52px;padding-top:30px}
+.cell .lbl{color:#d7ead9;text-align:center;margin-bottom:18px}.cell .lbl b{color:#fff}
+.cell:nth-child(3){transform:translateY(-22px)}
+.concept-tag{top:36px;left:44px;color:#f4c9a8}
+</style></head>
+<body data-out="gardening/gd-hero.jpg"><div id="frame"><span class="concept-tag">Concept screens</span></div>
+<script src="_gd.js"></script><script>
+const f=document.getElementById("frame");
+f.insertAdjacentHTML("beforeend",[["01","Scan",scan()],["02","Health result",result()],["03","Native picks",natives()]].map(([n,l,s])=>`<div class="cell"><div class="lbl"><b>${n}</b>&nbsp; ${l}</div><div class="phone"><div class="notch"></div><div class="screen">${s}</div></div></div>`).join(""));
+</script></body></html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fan Concierge · Daksha Arvind</title>
+  <meta name="description" content="One AI concierge, four football clubs. Case study on the Fan Concierge flow and demo for Fetch.ai's ASI:One.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d4532b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-style='italic' font-size='38' text-anchor='middle' fill='%23fff'%3Ed%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove("no-js")</script>
+</head>
+<body class="p-fc">
+
+<header class="wrap nav">
+  <a class="nav-name" href="index.html">Daksha Arvind <span>/ Meow</span></a>
+  <nav><ul><li><a href="index.html#work">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+</header>
+
+<main>
+  <div class="wrap cs-top">
+    <a class="back" href="index.html#work">← All projects</a>
+    <div class="cs-eyebrow">
+      <span class="eyebrow">Consumer · Sports · Fetch.ai</span>
+      <span class="status">Deployed · Summer 2026</span>
+    </div>
+    <h1 class="cs-title">Fan Concierge</h1>
+    <p class="cs-sub">One AI concierge, four football clubs. Link your season ticket, unlock a members-only fan area that actually feels like your club.</p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Product &amp; engineering lead</dd></div>
+      <div><dt>Timeline</dt><dd>Summer 2026</dd></div>
+      <div><dt>Methods</dt><dd>PRDs, flow design, prototyping, stakeholder reviews, sprints</dd></div>
+      <div><dt>Outcome</dt><dd>Deployed after Chief Revenue Officer review and club presentations</dd></div>
+    </dl>
+
+    <figure class="cs-hero">
+      <img src="assets/fan-concierge/fc-hero.jpg" alt="Four demo screens on a navy panel: Find your club, a Sheffield United club page, a QPR digital pass reveal, and a Cardiff City fan area with the Club Concierge chat">
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+
+    <!-- 01 -->
+    <section class="cs-section reveal">
+      <p class="num-label">01 / The Problem</p>
+      <h2>Matchday info lives in five places, and none of them feel like your club.</h2>
+      <p class="lead">Fan Concierge is a web app on ASI:One for fans of four EFL Championship clubs: Sheffield United, QPR, Cardiff City, and Swansea City. Fans find their club, link their season ticket, and unlock a members area with AI agents, partner offers, and exclusive experiences.</p>
+      <p>Today, matchday info is scattered across club apps, ticketing, socials, and travel. Championship clubs have loyal fans but small digital teams, so "build a great app for every club" isn't realistic. And internally, the team needed something concrete to align on design direction before building anything in the production codebase.</p>
+      <blockquote class="pull">
+        <small>Problem statement</small>
+        How do we give Championship fans one place for matchday, membership, and perks that still feels like their club, without each club building its own app?
+      </blockquote>
+      <div class="stats">
+        <div class="stat"><b>4</b><strong>Clubs at launch</strong><span>Sheffield United, QPR, Cardiff City, Swansea City</span></div>
+        <div class="stat"><b>4</b><strong>Steps to unlock</strong><span>From landing page to unlocked fan area</span></div>
+        <div class="stat"><b>2</b><strong>Agents per club</strong><span>A club concierge and a partner agent</span></div>
+        <div class="stat"><b>1</b><strong>Shared codebase</strong><span>Themed per club, not forked per club</span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section reveal">
+      <p class="num-label">02 / Research &amp; Findings</p>
+      <h2>Six things that framed the design.</h2>
+      <p>I worked from the PRD and the per-club research doc (fixtures, partners, how membership works at each club). Before drawing any screens, these were the constraints and truths I kept coming back to.</p>
+      <div class="cards c2">
+        <div class="card"><h4>Fans are tribal</h4><p>A Cardiff fan can't feel like they're in a Swansea app. Neutral design reads as nobody's club.</p></div>
+        <div class="card"><h4>Buyer and user want different things</h4><p>Clubs buy it for engagement and partner revenue. Fans use it to get through matchday with less hassle.</p></div>
+        <div class="card"><h4>The season ticket is the identity key</h4><p>Fans already have it, clubs already trust it. No new account to explain.</p></div>
+        <div class="card"><h4>Sponsors fit as agents, not banner ads</h4><p>A partner you can ask for signed memorabilia is useful. A banner is noise.</p></div>
+        <div class="card"><h4>Stakeholders needed something clickable</h4><p>A flow you can click is easier to react to than one described in a doc.</p></div>
+        <div class="card"><h4>Desktop demo first</h4><p>The audience was in a meeting room looking at a shared screen, not on a phone in a stadium.</p></div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="cs-section reveal">
+      <p class="num-label">03 / Strategic Insights</p>
+      <h2>4 principles that shaped the design.</h2>
+      <ol class="principles">
+        <li><div><strong>Club identity over neutral design</strong><span>Every screen should look like it belongs to your club, not to a platform.</span></div></li>
+        <li><div><strong>Configuration, not custom code</strong><span>A new club is colors, crest, and data. Not a new branch.</span></div></li>
+        <li><div><strong>Earn the unlock</strong><span>A clear locked vs unlocked state makes membership feel worth having.</span></div></li>
+        <li><div><strong>Agents as partners, not ads</strong><span>Sponsors show up as helpful agents you choose to talk to.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section reveal">
+      <p class="num-label">04 / The Solution</p>
+      <h2>Fan Concierge: four stages, one club accent.</h2>
+      <p>The flow goes landing → club page → link your season ticket → fan area. The link step asks for a membership number and surname, shows a short verifying state, then reveals a digital pass. That reveal is the moment membership becomes real, so the fan area is visibly locked until it happens.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/fan-concierge/fc-flow.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/fan-concierge/fc-flow.png" alt="Flow diagram: 1 Landing with four club cards, 2 Club page, 3 Link flow with membership number and surname, verifying, and pass reveal, 4 Fan area with agents and offers" loading="lazy"></a>
+      <figcaption>The 4-stage flow. The journey sidebar mirrors these steps on every screen.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/fan-concierge/fc-theming.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/fan-concierge/fc-theming.png" alt="The same pass card, chat bubble, stepper and button rendered in Sheffield United red, QPR blue, Cardiff City blue, and Swansea City black" loading="lazy"></a>
+      <figcaption>Same components, four clubs. The club accent lives in one variable, so adding a club is a config change, not new code.</figcaption>
+    </figure>
+    <figure class="figure reveal">
+      <a href="assets/fan-concierge/fc-locked-unlocked.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/fan-concierge/fc-locked-unlocked.png" alt="Swansea City fan area shown locked with a Members only prompt, and unlocked with the concierge chat, partner agent, offers and experiences" loading="lazy"></a>
+      <figcaption>Earn the unlock. The fan area before and after linking a season ticket.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <!-- 05 -->
+    <section class="cs-section reveal">
+      <p class="num-label">05 / The Outcome</p>
+      <h2>From a demo in a meeting room to a deployed product.</h2>
+      <p>The demo didn't stay a demo. It went up the chain, out to the clubs, through a few rounds of changes, and shipped.</p>
+      <div class="cards c3">
+        <div class="card"><span class="n">1</span><h4>Reviewed by the Chief Revenue Officer</h4><p>The clickable demo got the product in front of leadership early, while it was still cheap to change.</p></div>
+        <div class="card"><span class="n">2</span><h4>Presented to the clubs</h4><p>We took it to the fan clubs themselves, then iterated on what they pushed back on.</p></div>
+        <div class="card"><span class="n">3</span><h4>Deployed</h4><p>After 5 to 6 rounds of iteration with the tech team, product, and leadership, the version that survived is the one that shipped.</p></div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b class="sm">£265k to £365k</b><strong>Projected revenue</strong><span>Year one, across 4 clubs. Estimate*</span></div>
+        <div class="stat"><b class="sm">$5.9B</b><strong>Market</strong><span>Global fan engagement platforms, 2024, growing ~16% a year</span></div>
+        <div class="stat"><b class="sm">8 to 12</b><strong>Partner brands</strong><span>Projected, 2 to 3 per club. Estimate*</span></div>
+        <div class="stat"><b class="sm">5 to 6</b><strong>Iterations</strong><span>With tech, product, and leadership before deploy</span></div>
+      </div>
+      <p class="cs-cap">*Projections, not reported results. Assumes ~22k average Championship home crowd (2024/25 season), about 55k season ticket holders across the 4 clubs, 15% signing up and spending ~£20 a year through partner agents, plus a £25k to £50k annual license per club. Market figure from <a href="https://www.gminsights.com/industry-analysis/fan-engagement-platform-market" target="_blank" rel="noopener">Global Market Insights</a>.</p>
+      <p style="margin-top:24px">It also bridged a gap between engineering and product, and partner and stakeholder interest grew with it. That included a celebrity moment: Snoop Dogg, a Swansea City co-owner, featured in the ad for our collaboration with the clubs.</p>
+    </section>
+
+    <section class="reflection reveal">
+      <p class="num-label">Reflection</p>
+      <h2>Product thinking was the multiplier.</h2>
+      <p>As product and engineering lead, a lot of my job was being the bridge. Engineering wanted to know exactly what to build. The business side wanted to know why clubs would pay for it. Holding both conversations at once is what kept the project moving without drifting.</p>
+      <p>Building the clickable demo myself was the fastest way to make that happen. It's a lot easier to react to a screen than to a paragraph, and it gave the Chief Revenue Officer and the clubs something real to push on.</p>
+      <p>We ran one-week sprints, which is fast. Each week ended in a review, so feedback from the tech team, product, and leadership landed in the next iteration instead of a someday list. Over 5 to 6 rounds, a lot changed.</p>
+      <p>The biggest push came from our founder and tech lead, who was firm that everything had to be built from reusable code blocks. That reshaped the UI: instead of designing fresh screens, I had to make the fan experience feel right using features and components that already existed. It made me a better product person, because the constraint forced every screen to earn its place.</p>
+    </section>
+
+    <nav class="cs-foot" aria-label="Case study navigation">
+      <a href="index.html#work"><small>Back</small><span>All projects</span></a>
+      <a href="mailto:dakshabarvind@gmail.com"><small>Say hi</small><span>Get in touch</span></a>
+      <a class="next" href="startnow.html"><small>Next project</small><span>StartNOW →</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <span>© 2026 Daksha Arvind</span>
+    <nav><a href="mailto:dakshabarvind@gmail.com">Email</a> <a href="https://www.linkedin.com/in/daksha024/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/Dakshaarvind" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

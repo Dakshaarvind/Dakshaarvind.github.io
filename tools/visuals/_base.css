@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=block");
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #888; }
+body { font-family: "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; color: #17150f; }
+h1, h2, h3, h4 { font-family: "Plus Jakarta Sans", "Inter", sans-serif; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+
+/* The element that gets screenshotted */
+#frame { position: relative; overflow: hidden; }
+
+.lbl { font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+.mono, code, pre { font-variant-ligatures: none; } .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+/* Browser chrome */
+.browser { border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08); }
+.browser .bar { height: 30px; background: #ecebe8; display: flex; align-items: center; gap: 6px; padding: 0 12px; }
+.browser .bar i { width: 10px; height: 10px; border-radius: 50%; background: #d5d2cc; display: block; }
+.browser .bar i:nth-child(1) { background: #ff6058; } .browser .bar i:nth-child(2) { background: #ffbd2e; } .browser .bar i:nth-child(3) { background: #28c940; }
+.browser .bar .url { margin-left: 14px; flex: 1; height: 18px; border-radius: 6px; background: #fff; font-size: 10px; color: #8a867e; display: flex; align-items: center; padding-left: 10px; }
+.browser .vp { position: relative; overflow: hidden; }
+
+/* Phone frame */
+.phone { width: 300px; height: 620px; border-radius: 46px; background: #111; padding: 11px; box-shadow: 0 40px 70px -25px rgba(0,0,0,.6), inset 0 0 0 2px #2a2a2a; position: relative; }
+.phone .screen { width: 100%; height: 100%; border-radius: 36px; overflow: hidden; background: #fbf8f1; position: relative; }
+.phone .notch { position: absolute; top: 20px; left: 50%; width: 92px; height: 26px; margin-left: -46px; background: #111; border-radius: 20px; z-index: 5; }
+
+.concept-tag { position: absolute; font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; border: 1px solid currentColor; }

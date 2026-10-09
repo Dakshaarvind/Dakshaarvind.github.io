@@ -1,0 +1,13 @@
+{
+  "name": "portfolio-tools",
+  "private": true,
+  "description": "Regenerates the visuals in /assets and runs the QA pass. Not needed to deploy the site.",
+  "scripts": {
+    "render": "node render.mjs",
+    "check": "node check.mjs",
+    "capture-demo": "node capture-demo.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "1.47.2"
+  }
+}

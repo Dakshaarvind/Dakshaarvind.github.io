@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;padding:52px 56px 56px;background:#faf7f2}
+h2{font-size:28px;font-weight:800;margin-bottom:6px}
+.s{color:#7a756b;font-size:15px;margin-bottom:34px}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.st{position:relative;padding-right:28px}
+.st .dot{width:48px;height:48px;border-radius:14px;background:#14213d;color:#fff;display:grid;place-items:center;font-family:"Plus Jakarta Sans";font-weight:800;font-size:18px;position:relative;z-index:2}
+.st:not(:last-child)::after{content:"";position:absolute;left:56px;right:8px;top:24px;height:2px;background:repeating-linear-gradient(90deg,#14213d 0 8px,transparent 8px 14px)}
+.st:not(:last-child)::before{content:"";position:absolute;right:4px;top:19px;border:6px solid transparent;border-left:9px solid #14213d}
+.st h3{font-size:20px;margin:18px 0 8px}
+.st p{font-size:14px;color:#4a463e;line-height:1.55}
+.st ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:6px}
+.st li{font-size:13px;background:#fff;border:1px solid #e4ddd0;border-radius:8px;padding:7px 10px}
+.st.key .dot{background:#a3213f}
+.st.key li{border-color:#e9b9c5}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a3213f;margin-top:12px}
+</style></head>
+<body data-out="fan-concierge/fc-flow.png"><div id="frame">
+<h2>Landing to unlocked fan area in 4 steps</h2><div class="s">The journey sidebar mirrors this on every screen so fans always know where they are.</div>
+<div class="flow">
+<div class="st"><div class="dot">1</div><h3>Landing</h3><p>Club cards for all four clubs. Pick yours.</p><ul><li>Sheffield United</li><li>QPR</li><li>Cardiff City</li><li>Swansea City</li></ul></div>
+<div class="st"><div class="dot">2</div><h3>Club page</h3><p>Crest, next fixture, and a clear "what you unlock" list.</p><ul><li>Next fixture</li><li>What you unlock</li><li>Link season ticket CTA</li></ul></div>
+<div class="st key"><div class="dot">3</div><h3>Link flow</h3><p>The season ticket is the identity key.</p><ul><li>Membership number + surname</li><li>Verifying…</li><li>Digital pass reveal</li></ul><span class="tag">The unlock moment</span></div>
+<div class="st"><div class="dot">4</div><h3>Fan area</h3><p>Locked until linked, then the full members area.</p><ul><li>Club Concierge agent</li><li>Fetch.ai partner agent</li><li>Member offers + experiences</li></ul></div>
+</div></div></body></html>

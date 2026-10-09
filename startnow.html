@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StartNOW · Daksha Arvind</title>
+  <meta name="description" content="StartNOW: a multi-agent AI boardroom that pressure-tests startup ideas. Winner of the Fetch.ai track at LA Hacks 2025, offered $30K in seed funding.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d4532b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-style='italic' font-size='38' text-anchor='middle' fill='%23fff'%3Ed%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove("no-js")</script>
+</head>
+<body class="p-sn">
+
+<header class="wrap nav">
+  <a class="nav-name" href="index.html">Daksha Arvind <span>/ Meow</span></a>
+  <nav><ul><li><a href="index.html#work">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+</header>
+
+<main>
+  <div class="wrap cs-top">
+    <a class="back" href="index.html#work">← All projects</a>
+    <div class="cs-eyebrow">
+      <span class="eyebrow">AI Agents · Multi-Agent · UCLA Hackathon 2025</span>
+      <span class="status">Winner</span>
+    </div>
+    <h1 class="cs-title">StartNOW</h1>
+    <p class="cs-sub">One AI tells you your idea is great. A boardroom of them argues about it. A multi-agent product that pressure-tests startup ideas, built in 36 hours and offered $$$ in seed funding.</p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Product and Software lead</dd></div>
+      <div><dt>Team</dt><dd>3 people</dd></div>
+      <div><dt>Timeline</dt><dd>36 hours</dd></div>
+    </dl>
+
+    <figure class="cs-hero">
+      <img src="assets/startnow/sn-hero.jpg" alt="The StartNOW boardroom: a pitch about automating job hunting, followed by replies from a neutral PM, a cautious CTO, a skeptical Investor who pushes back, and a scatterbrained Unpaid Intern. Beside it, the outputs: executive brief, 7-slide pitch deck, investor Q&amp;A, and a risk map.">
+    </figure>
+    <p class="cs-cap">The boardroom</p>
+  </div>
+
+  <div class="wrap-text">
+
+    <!-- 01 -->
+    <section class="cs-section reveal">
+      <p class="num-label">01 / The Problem</p>
+      <h2>First-time founders get one voice. Real teams argue.</h2>
+      <p class="lead">Early on, most founders test ideas on friends, who are nice, or on a single chatbot, which is nicer. Neither tells you the CTO thinks it won't scale and the investor wants to see numbers.</p>
+      <p>A real startup team has tension built in. The PM asks who it's for. The CTO asks if it can ship. The investor asks how it makes money. That friction is where the useful feedback comes from, and it's exactly what a solo founder with a chat window doesn't get.</p>
+      <blockquote class="pull">
+        <small>Problem statement</small>
+        How might a solo founder get the pushback of a full startup team before they have one?
+      </blockquote>
+    </section>
+
+    <section class="reveal">
+      <div class="stats">
+        <div class="stat"><b class="sm">Winner</b><strong>AI Agents League</strong><span>LA Hacks 2025, UCLA</span></div>
+        <div class="stat"><b class="sm">$$$</b><strong>Seed funding offered</strong><span>To turn the hack into a product</span></div>
+        <div class="stat"><b>6</b><strong>Agent personas</strong><span>PM, CTO, Investor, Marketer, CEO, Unpaid Intern</span></div>
+        <div class="stat"><b>36</b><strong>Hours</strong><span>From blank repo to demo, team of 3</span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section reveal">
+      <p class="num-label">02 / Research &amp; Findings</p>
+      <h2>What we learned before and during the build.</h2>
+      <p>A hackathon doesn't leave room for user interviews, so we worked from our own experience pitching ideas and from fast prototyping: build a version, watch the agents talk, change one thing, repeat. These shaped the product.</p>
+      <div class="cards c2">
+        <div class="card"><span class="k">Finding</span><h4>LLMs agree by default</h4><p>Ask five agents about the same pitch and you get five polite versions of "great idea." Agreement is the failure mode.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Role alone isn't enough</h4><p>A "CTO" prompt gives you technical comments, not pushback. How hard an agent pushes needed to be its own setting.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Long replies kill the meeting</h4><p>Unbounded agents write essays. Five essays in a row reads like a report, not a room.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Waiting feels broken</h4><p>Five agents in sequence takes time. A spinner over that wait reads as a hang, not as a discussion happening.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>A transcript isn't a takeaway</h4><p>Founders don't want to reread a chat log. They want something to use: a deck, a list of risks, next steps.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Personality is the hook</h4><p>The Unpaid Intern asking for coffee got the biggest reaction in demos. Fun is what makes people stay for round two.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/startnow/sn-disagree.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/startnow/sn-disagree.png" alt="Screenshot of the app: PM-neutral says automating job hunting is solid and to keep it simple, CTO-cautious says minimalism enhances adoption, and Investor-skeptical replies that minimalism is risky and to prove viability with data, not words." loading="lazy"></a>
+      <figcaption>The product working as intended: the Investor reads the CTO's "minimalism enhances adoption" and pushes back on it. Screenshot from the real app.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <!-- 03 -->
+    <section class="cs-section reveal">
+      <p class="num-label">03 / Strategic Insights</p>
+      <h2>5 principles that shaped the product.</h2>
+      <ol class="principles">
+        <li><div><strong>Disagreement is the feature</strong><span>The value isn't one smart answer. It's watching your idea survive (or not) the people who'd object to it.</span></div></li>
+        <li><div><strong>A relay, not a broadcast</strong><span>Agents that reply to each other argue. Agents that reply only to the pitch just agree in parallel.</span></div></li>
+        <li><div><strong>The founder is the boss</strong><span>You can jump in at any point and the board adapts. It's your meeting, not a show you're watching.</span></div></li>
+        <li><div><strong>Right model for the job</strong><span>Fast and cheap for in-character turns, long-context for synthesis. One model doing both does neither well.</span></div></li>
+        <li><div><strong>Leave with artifacts, not a log</strong><span>Every session ends in something you can use the next morning.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section reveal">
+      <p class="num-label">04 / The Solution</p>
+      <h2>StartNOW: pitch it, watch the board argue, leave with a plan.</h2>
+      <p>You pick your board, set how harsh you want the feedback, and describe your idea. Agents built on the uAgents framework take turns in a roundtable, each powered by an LLM. When the session ends, it reads the full transcript and turns it into things a founder can actually use.</p>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/startnow/sn-persona.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/startnow/sn-persona.png" alt="A matrix of six roles (PM, CTO, Investor, Marketer, CEO, Unpaid Intern) against five temperaments (neutral, cautious, optimistic, skeptical, supportive), with each role's default marked. Beside it, what each role is told it's for, and a feedback style dial: Supportive, Realistic, Harsh." loading="lazy"></a>
+      <figcaption>Persona = role × temperament. Defaults give every board built-in tension; users can swap any seat.</figcaption>
+    </figure>
+    <figure class="figure reveal">
+      <a href="assets/startnow/sn-relay.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/startnow/sn-relay.png" alt="Diagram of a round: the user's pitch goes to the PM, whose reply goes to the CTO, then Investor, Marketer and CEO, each reading the previous agent's reply. The user can interject anytime. Replies stream to the UI as they land, and at the end Gemini 2.0 Flash turns the transcript into an executive brief, pitch deck, investor Q&amp;A and risk map." loading="lazy"></a>
+      <figcaption>How a round works. Each agent reads the one before it, which is where the pushback comes from.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <section class="cs-section reveal" style="margin-top:0">
+      <h3>Design decisions</h3>
+      <div class="decisions">
+        <div class="decision"><span class="n">1</span><div><h4>Split role from temperament</h4><p>Six roles and five temperaments, set separately. Defaults are picked for tension (a skeptical Investor next to an optimistic Marketer), and a room-wide Supportive / Realistic / Harsh dial lets founders choose how much it stings.</p></div></div>
+        <div class="decision"><span class="n">2</span><div><h4>Chain the agents in a relay</h4><p>Each agent gets the previous agent's reply as its input, not just the original pitch. That one change is what turned five parallel opinions into an actual argument.</p></div></div>
+        <div class="decision"><span class="n">3</span><div><h4>Cap every turn at 100 tokens</h4><p>Short turns keep it a conversation and keep each call fast. It also made the personalities sharper: a skeptic with two sentences gets straight to the objection.</p></div></div>
+        <div class="decision"><span class="n">4</span><div><h4>Stream the meeting instead of hiding it</h4><p>Each agent posts its reply to the backend the moment it lands, and the UI picks it up live. The wait becomes the experience, like watching a meeting unfold.</p></div></div>
+        <div class="decision"><span class="n">5</span><div><h4>A second model for the takeaways</h4><p>Gemini 2.0 Flash turns the full transcript into an 8-section executive brief (PDF), a 7-slide pitch deck, a mock investor Q&amp;A, and a tech / market / funding risk map scored 0 to 10. Each is told to use only what the board said, so the outputs stay grounded in the conversation.</p></div></div>
+      </div>
+      <p style="margin-top:28px">Read more: <a class="link-out" href="https://devpost.com/software/startnow" target="_blank" rel="noopener">Devpost ↗</a> · <a class="link-out" href="https://github.com/srikondapalli1/startup-sim" target="_blank" rel="noopener">GitHub ↗</a> · <a class="link-out" href="https://www.youtube.com/watch?v=IH_bbZ4oxDE" target="_blank" rel="noopener">Demo video ↗</a></p>
+    </section>
+
+    <!-- 05 -->
+    <section class="cs-section reveal">
+      <p class="num-label">05 / The Outcome</p>
+      <h2>From a 36-hour hack to a funding offer.</h2>
+      <div class="cards c3">
+        <div class="card"><span class="n">1</span><h4>Won the Agentic AI track</h4><p>Winner of the AI Agents League at UCLA Hackathon, judged on how well the product used agents, not just whether it used them.</p></div>
+        <div class="card"><span class="n">2</span><h4>Offered $$$ in seed funding</h4><p>To take it past the hackathon and build it into a real product.</p></div>
+        <div class="card"><span class="n">3</span><h4>A roadmap, not a wishlist</h4><p>Voice so you can talk to your board, saved custom teams, and multiplayer so co-founders can pitch together.</p></div>
+      </div>
+
+      <h3>What I'd measure next</h3>
+      <div class="cards c3">
+        <div class="card"><span class="k">Engagement</span><h4>Interjection rate</h4><p>Share of sessions where the founder jumps in. If nobody does, it's a show, not a tool.</p></div>
+        <div class="card"><span class="k">Value</span><h4>Artifact export rate</h4><p>How often the deck, brief, or risk map actually leaves the app.</p></div>
+        <div class="card"><span class="k">Retention</span><h4>Second-pitch rate</h4><p>Founders who come back with a revised idea. The real test of whether the pushback helped.</p></div>
+      </div>
+    </section>
+
+    <section class="reflection reveal">
+      <p class="num-label">Reflection</p>
+      <h2>The best product decision was one line of plumbing.</h2>
+      <p>The hardest part wasn't getting agents to respond. It was getting them to respond to each other, in character, without collapsing into agreement. The fix wasn't a better prompt. It was changing what each agent reads: the last speaker, not the pitch. Product behavior lived in the architecture.</p>
+      <p>Building with agents also changed how I think about personality. It isn't decoration. The Intern is the joke that keeps people watching, and the skeptical Investor is the reason the feedback is worth anything. Both are product choices.</p>
+      <p>And 36 hours forces real prioritization. Voice, saved teams, and multiplayer were all on the board. We cut them to ship one loop that worked end to end: pitch, argue, takeaways. That loop is what won.</p>
+    </section>
+
+    <nav class="cs-foot" aria-label="Case study navigation">
+      <a href="index.html#work"><small>Back</small><span>All projects</span></a>
+      <a href="mailto:dakshabarvind@gmail.com"><small>Say hi</small><span>Get in touch</span></a>
+      <a class="next" href="multi-sensor.html"><small>Next project</small><span>Multi-Sensor Research Platform →</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <span>© 2026 Daksha Arvind</span>
+    <nav><a href="mailto:dakshabarvind@gmail.com">Email</a> <a href="https://www.linkedin.com/in/daksha024/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/Dakshaarvind" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

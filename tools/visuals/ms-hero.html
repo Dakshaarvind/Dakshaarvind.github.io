@@ -1,0 +1,51 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;height:900px;background:radial-gradient(120% 90% at 0% 0%,#14736d 0%,#0f5e5a 50%,#0b4643 100%);color:#fff}
+.t{position:absolute;left:64px;top:56px}
+.t .lbl{color:#9fe3da;font-size:12px}
+.t h2{font-size:32px;margin-top:8px}
+.legend{position:absolute;left:64px;bottom:50px;display:flex;gap:22px;font-size:13px;color:#cfece8}
+.legend span{display:flex;gap:8px;align-items:center}.legend i{width:12px;height:12px;border-radius:4px;display:block}
+svg{position:absolute;inset:0}
+</style></head>
+<body data-out="multi-sensor/ms-hero.jpg"><div id="frame">
+<div class="t"><div class="lbl">System architecture</div><h2>From a skin patch to a live graph</h2></div>
+<svg id="s" width="1200" height="900" viewBox="0 0 1200 900"></svg>
+<div class="legend" id="lg"></div>
+</div>
+<script>
+const own={hw:["Hardware","#ffb86b"],tr:["Transport","#c4a7ff"],be:["Backend","#7fe3d4"],fe:["Frontend","#8fc1ff"]};
+const W=210,H=118;
+const N={
+ patch:[64,200,"Skin patch","Sweat: heat + humidity","hw"],
+ pot:[340,200,"Potentiostat chip","Measures current,\nconverts to voltage","hw"],
+ mcu:[616,200,"Microcontroller","Reads the chip","hw"],
+ tr:[892,200,"Transport","Readings to the API","tr"],
+ api:[892,440,"Backend API","FastAPI on Render","be"],
+ db:[616,440,"Database","Time-series readings","be"],
+ dash:[64,440,"Research dashboard","4 live time-series,\nside by side","fe",486],
+ auth:[892,680,"Auth","Supabase, proxied\nthrough the backend","be"],
+ sim:[616,680,"Simulator","Fixed sensor values while\nhardware is in progress","be",210,true],
+};
+let s=`<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#e8fbf8"/></marker><marker id="d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#ffd27a"/></marker></defs>`;
+const line=(d,dash)=>`<path d="${d}" fill="none" stroke="${dash?"#ffd27a":"#e8fbf8"}" stroke-width="2" ${dash?'stroke-dasharray="6 6"':""} marker-end="url(#${dash?"d":"a"})" opacity=".9"/>`;
+// flows
+s+=line(`M${64+W},259 L338,259`)+line(`M${340+W},259 L614,259`)+line(`M${616+W},259 L890,259`);
+s+=line(`M997,${200+H} L997,438`);
+s+=line(`M892,499 L${616+W+2},499`);
+s+=line(`M616,499 L${64+486+2},499`);
+s+=line(`M997,680 L997,${440+H+2}`);
+s+=line(`M${616+W},739 L860,739 L860,${440+H-20} L890,${440+H-20}`,true);
+for(const [k,[x,y,t,sub,o,w=W,dash]] of Object.entries(N)){
+ const c=own[o][1];
+ s+=`<g><rect x="${x}" y="${y}" width="${w}" height="${H}" rx="16" fill="${dash?"rgba(255,210,122,.08)":"rgba(255,255,255,.08)"}" stroke="${dash?"#ffd27a":"rgba(255,255,255,.28)"}" stroke-width="1.5" ${dash?'stroke-dasharray="6 6"':""}/>
+ <rect x="${x}" y="${y+18}" width="4" height="26" rx="2" fill="${c}"/>
+ <text x="${x+20}" y="${y+38}" font-family="Plus Jakarta Sans" font-weight="800" font-size="18" fill="#fff">${t}</text>`;
+ sub.split("\n").forEach((ln,i)=>s+=`<text x="${x+20}" y="${y+66+i*20}" font-family="Inter" font-size="14" fill="#cfece8">${ln}</text>`);
+ s+=`</g>`;
+}
+s+=`<text x="1012" y="388" font-family="Inter" font-size="12" fill="#9fe3da">HTTP</text>`;
+s+=`<text x="1012" y="628" font-family="Inter" font-size="12" fill="#9fe3da">JWT</text>`;
+document.getElementById("s").innerHTML=s;
+document.getElementById("lg").innerHTML=Object.values(own).map(([n,c])=>`<span><i style="background:${c}"></i>${n}</span>`).join("")+`<span><i style="background:transparent;border:1.5px dashed #ffd27a"></i>Stand-in until hardware is ready</span>`;
+</script></body></html>

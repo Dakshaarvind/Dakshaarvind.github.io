@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;background:#faf7f2;padding:52px 56px}
+.lbl{color:#b8582f;font-size:12px}h2{font-size:28px;margin:8px 0 28px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.c{background:#fff;border:1px solid #e4ddd0;border-radius:20px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:start}
+.c small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7a756b;font-weight:600}
+.c h3{font-size:30px;margin:2px 0 8px}
+.c.h h3{color:#2f7a3c}.c.n h3{color:#a36b0c}
+.c p{font-size:15px;color:#4a463e;line-height:1.55}
+.nx{margin-top:16px;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5}
+.h .nx{background:#e3f2e1;color:#24502c}.n .nx{background:#fbeccd;color:#6b4708}
+.nx b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.rule{margin-top:22px;display:flex;gap:14px;align-items:center;font-size:15px;color:#4a463e}
+.rule i{font-style:normal;font-family:"Plus Jakarta Sans";font-weight:800;color:#b8582f}
+.badges{display:flex;gap:10px;margin-left:auto;align-items:center;font-size:12px;color:#7a756b}
+</style></head>
+<body data-out="gardening/gd-health-states.png"><div id="frame">
+<div class="lbl">The leaf badge</div><h2>Two states. Every result ends with a next step.</h2>
+<div class="g">
+<div class="c h"><div id="a"></div><div><small>Health check</small><h3>Happy</h3><p>Your plant looks healthy. Keep doing what you're doing.</p><div class="nx"><b>Next step</b>Scan again next week to keep a streak going.</div></div></div>
+<div class="c n"><div id="b"></div><div><small>Health check</small><h3>Needs help</h3><p>Something looks off. You don't need to know exactly what to start fixing it.</p><div class="nx"><b>Next step</b>Check the soil. If the top inch is dry, water deeply. Scan again in 3 days.</div></div></div>
+</div>
+<div class="rule"><i>Rule:</i> "Needs help" is never shown without a next step. A score, not a diagnosis.</div>
+</div>
+<script src="_gd.js"></script><script>a.innerHTML=leaf("happy",96);b.innerHTML=leaf("help",96)</script></body></html>

@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"><link rel="stylesheet" href="_fc.css">
+<style>
+#frame{width:1200px;height:900px;background:radial-gradient(120% 90% at 20% 0%,#1f3157 0%,#14213d 55%,#0e1830 100%);display:grid;grid-template-columns:repeat(2,506px);gap:40px 40px;justify-content:center;align-content:center}
+.cell .lbl{color:rgba(255,255,255,.7);margin-bottom:12px;display:flex;gap:10px;align-items:center}
+.cell .lbl b{color:#fff;font-weight:700}
+</style></head>
+<body data-out="fan-concierge/fc-hero.jpg"><div id="frame"></div>
+<script src="_fc.js"></script><script>
+const z=0.46,u="Fan Concierge · demo";
+const cells=[["01","Find your club",picker()],["02","Club page",club("sufc")],["03","Pass reveal",pass("qpr")],["04","Fan area",fan("ccfc",false)]];
+document.getElementById("frame").innerHTML=cells.map(([n,l,s])=>`<div class="cell"><div class="lbl"><b>${n}</b>${l}</div>${browserFrame(s,u,z)}</div>`).join("");
+</script></body></html>

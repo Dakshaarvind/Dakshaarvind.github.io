@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multi-Sensor Research Platform · Daksha Arvind</title>
+  <meta name="description" content="A pipeline from a sweat-sensing skin patch to a live research dashboard. Case study on backend, auth, and sprint planning for a team of 7.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d4532b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-style='italic' font-size='38' text-anchor='middle' fill='%23fff'%3Ed%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove("no-js")</script>
+</head>
+<body class="p-ms">
+
+<header class="wrap nav">
+  <a class="nav-name" href="index.html">Daksha Arvind <span>/ Meow</span></a>
+  <nav><ul><li><a href="index.html#work">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+</header>
+
+<main>
+  <div class="wrap cs-top">
+    <a class="back" href="index.html#work">← All projects</a>
+    <div class="cs-eyebrow">
+      <span class="eyebrow">Health Tech · Research Hardware · Team of 7</span>
+      <span class="status wip">In progress · Aug 2026 to present</span>
+    </div>
+    <h1 class="cs-title">Multi-Sensor Research Platform</h1>
+    <p class="cs-sub">Can sweat tell you how much someone's had to drink? A pipeline from a skin patch to a live research dashboard.</p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>AI Research Assistant</dd></div>
+      <div><dt>Timeline</dt><dd>Aug 2026 to present</dd></div>
+      <div><dt>Methods</dt><dd>Sprint planning, API design docs, PR review</dd></div>
+    </dl>
+
+    <figure class="cs-hero">
+      <img src="assets/multi-sensor/ms-hero.jpg" alt="Architecture diagram: skin patch, potentiostat chip, microcontroller and transport feed a FastAPI backend on Render, which writes to a database that feeds the research dashboard. Supabase auth is proxied through the backend, and a simulator stands in for hardware.">
+    </figure>
+    <p class="cs-cap">System architecture, color-coded by who owns each piece.</p>
+  </div>
+
+  <div class="wrap-text">
+
+    <!-- 01 -->
+    <section class="cs-section reveal">
+      <p class="num-label">01 / The Problem</p>
+      <h2>The hard part isn't any one piece. It's the handoffs.</h2>
+      <p class="lead">The study asks whether heat and humidity readings from sweat can predict blood alcohol level. A skin patch feeds a potentiostat chip, which measures current and converts it to voltage. From there: microcontroller, backend, database, dashboard.</p>
+      <p>Each of those hops is owned by different people: firmware, transport, backend, frontend. Hardware research projects tend to break exactly there, where one person's output becomes another person's input and nobody wrote down the shape of it.</p>
+      <blockquote class="pull">
+        <small>Problem statement</small>
+        How do seven people across hardware and software build one pipeline, when the hardware isn't ready and the software can't wait?
+      </blockquote>
+      <div class="stats">
+        <div class="stat"><b>14</b><strong>Weeks</strong><span>The full project window</span></div>
+        <div class="stat"><b>7</b><strong>Two-week sprints</strong><span>Two weeks each</span></div>
+        <div class="stat"><b>4</b><strong>Live signals</strong><span>Humidity, temperature, input and output current</span></div>
+        <div class="stat"><b>7</b><strong>People</strong><span>Across hardware, backend, frontend, transport</span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section reveal">
+      <p class="num-label">02 / Research &amp; Findings</p>
+      <h2>Six realities the plan had to handle.</h2>
+      <p>None of these are surprising on their own. Together, they decided the order we built things in.</p>
+      <div class="cards c2">
+        <div class="card"><h4>Hardware isn't ready when software needs to start</h4><p>Waiting on the patch would stall the backend and dashboard.</p></div>
+        <div class="card"><h4>Researchers need signals side by side</h4><p>The point is spotting correlations, so the four signals belong on one shared time axis.</p></div>
+        <div class="card"><h4>Auth decisions ripple into the frontend</h4><p>Where login lives changes what the frontend has to build and what it's trusted with.</p></div>
+        <div class="card"><h4>Field use is undefined</h4><p>Field use, like traffic stop screening, is still an open question.</p></div>
+        <div class="card"><h4>Simulated vs real must be obvious</h4><p>If fake data and real data look the same, someone will eventually mistake one for the other.</p></div>
+        <div class="card"><h4>Doc review catches mistakes cheaply</h4><p>Changing a design doc costs a comment. Changing merged code costs a lot more.</p></div>
+      </div>
+    </section>
+
+    <!-- 03 -->
+    <section class="cs-section reveal">
+      <p class="num-label">03 / Strategic Insights</p>
+      <h2>4 principles that shaped the build.</h2>
+      <ol class="principles">
+        <li><div><strong>Simulate first, then go real</strong><span>Unblock software with fixed values; swap in the patch when it's ready.</span></div></li>
+        <li><div><strong>One API surface for the frontend</strong><span>The frontend talks to our backend, not to five services.</span></div></li>
+        <li><div><strong>Design doc before code</strong><span>Agree on the shape before anyone builds it.</span></div></li>
+        <li><div><strong>Don't design for the undefined use case yet</strong><span>Research dashboard first. Field use can wait until someone defines it.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section reveal">
+      <p class="num-label">04 / The Solution</p>
+      <h2>A backend-first pipeline with a dashboard at the end.</h2>
+      <p>My part is the backend and auth: the layer every other sub-team plugs into. Hardware and transport push readings in; the frontend pulls them out. Everything goes through one API.</p>
+      <div class="cards c3">
+        <div class="card feature"><span class="k">Backend</span><h4>Backend API</h4><p class="sub">FastAPI on Render</p><p>One versioned API the transport layer writes to and the frontend reads from.</p></div>
+        <div class="card feature"><span class="k">Auth</span><h4>Supabase, proxied</h4><p class="sub">Backend-proxied login</p><p>The frontend never talks to Supabase directly. The backend handles it and verifies JWTs.</p></div>
+        <div class="card feature"><span class="k">Frontend</span><h4>Research dashboard</h4><p class="sub">4 time-series</p><p>Humidity, temperature, and both currents on a shared time axis.</p></div>
+      </div>
+
+      <h3>Design decisions</h3>
+      <div class="decisions">
+        <div class="decision"><span class="n">1</span><div><h4>Backend-proxied auth, not frontend-direct</h4><p>We started with the frontend logging in to Supabase directly, then switched to backend-proxied after design review. One API surface, and auth logic stays in one place.</p></div></div>
+        <div class="decision"><span class="n">2</span><div><h4>Fixed simulated sensor values</h4><p>So software isn't blocked on hardware. The dashboard can be built and tested against known values long before the patch is ready.</p></div></div>
+        <div class="decision"><span class="n">3</span><div><h4>Auth design shipped as its own PR</h4><p>The design doc went up for review and merged before any implementation, so the team argued about the plan, not the code.</p></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/multi-sensor/ms-dashboard.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/multi-sensor/ms-dashboard.png" alt="Dashboard concept with four line charts on a shared 30 minute axis: humidity, skin temperature, input current, output current. Badge reads Simulated data, not study results." loading="lazy"></a>
+      <figcaption>Dashboard concept. Every value here is simulated for illustration, not study data.</figcaption>
+    </figure>
+    <figure class="figure reveal">
+      <a href="assets/multi-sensor/ms-timeline.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/multi-sensor/ms-timeline.png" alt="Seven two-week sprints across 14 weeks, with shipped work, up next, and the patch-to-graph milestone" loading="lazy"></a>
+      <figcaption>14 weeks, 7 sprints. What's shipped, what's next, and the milestone everything points at.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <section class="reveal">
+      <h3>Shipped so far</h3>
+      <ul class="shipped">
+        <li>FastAPI backend live on Render</li>
+        <li>Supabase set up</li>
+        <li>Auth design doc merged</li>
+        <li>JWT verification + <code>/api/v1/me</code> merged</li>
+      </ul>
+      <p style="margin-top:24px"><a class="link-out" href="https://github.com/Multi-sensors" target="_blank" rel="noopener">Multi-sensors on GitHub ↗</a></p>
+    </section>
+
+    <!-- 05 -->
+    <section class="cs-section reveal">
+      <p class="num-label">05 / Next Steps</p>
+      <h2>Getting to patch-to-graph.</h2>
+      <div class="cards c3">
+        <div class="card"><span class="n">1</span><h4>Login + password reset APIs</h4><p>Finish the auth surface the frontend needs.</p></div>
+        <div class="card"><span class="n">2</span><h4>Time-series dashboard</h4><p>Build the four-signal view on the shared time axis.</p></div>
+        <div class="card"><span class="n">3</span><h4>First end-to-end run</h4><p>Real readings from the patch, all the way to a graph.</p></div>
+      </div>
+    </section>
+
+    <nav class="cs-foot" aria-label="Case study navigation">
+      <a href="index.html#work"><small>Back</small><span>All projects</span></a>
+      <a href="mailto:dakshabarvind@gmail.com"><small>Say hi</small><span>Get in touch</span></a>
+      <a class="next" href="gardening.html"><small>Next project</small><span>Gardening Assistant →</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <span>© 2026 Daksha Arvind</span>
+    <nav><a href="mailto:dakshabarvind@gmail.com">Email</a> <a href="https://www.linkedin.com/in/daksha024/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/Dakshaarvind" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

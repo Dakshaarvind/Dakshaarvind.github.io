@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css"><link rel="stylesheet" href="_fc.css">
+<style>
+#frame{width:1200px;height:520px;background:#14213d;display:grid;grid-template-columns:repeat(2,520px);gap:44px;justify-content:center;align-content:center}
+.cell .lbl{color:rgba(255,255,255,.75);margin-bottom:12px}
+.cell .lbl b{color:#fff}
+</style></head>
+<body data-out="fan-concierge/fc-locked-unlocked.png"><div id="frame"></div>
+<script src="_fc.js"></script><script>
+const z=520/1100;
+document.getElementById("frame").innerHTML=
+ `<div class="cell"><div class="lbl"><b>Locked</b> · before linking</div>${browserFrame(fan("swans",true),"Fan Concierge · demo",z)}</div>`+
+ `<div class="cell"><div class="lbl"><b>Unlocked</b> · after the pass reveal</div>${browserFrame(fan("swans",false),"Fan Concierge · demo",z)}</div>`;
+</script></body></html>

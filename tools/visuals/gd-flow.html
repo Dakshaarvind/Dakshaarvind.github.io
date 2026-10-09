@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+#frame{width:1200px;background:#2f5d3a;color:#fff;padding:50px 56px 54px}
+.lbl{color:#f4c9a8;font-size:12px}h2{font-size:28px;margin:8px 0 32px}
+.f{display:grid;grid-template-columns:1fr 40px 1fr 40px 1.15fr 40px 1fr;align-items:stretch}
+.b{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:18px;padding:20px}
+.b .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#bfe0c4;font-weight:600}
+.b h4{font-size:19px;margin:10px 0 6px}
+.b p{font-size:13.5px;color:#d7ead9;line-height:1.5}
+.ar{display:grid;place-items:center;color:#f4c9a8;font-size:22px}
+.out{display:grid;gap:8px;margin-top:10px}
+.out div{display:flex;gap:10px;align-items:center;background:#fff;color:#1d2a1f;border-radius:12px;padding:8px 10px;font-weight:700;font-size:14px}
+.b.hl{background:#fbf8f1;color:#1d2a1f}.b.hl .k{color:#b8582f}.b.hl p{color:#4b5a4e}
+.not{margin-top:26px;display:flex;gap:26px;font-size:14px;color:#d7ead9}
+.not span::before{content:"✕ ";color:#f4a07a;font-weight:700}
+.not span.y::before{content:"✓ ";color:#a8e0b0}
+</style></head>
+<body data-out="gardening/gd-flow.png"><div id="frame">
+<div class="lbl">How a scan works</div><h2>Photo in, one answer out</h2>
+<div class="f">
+<div class="b"><div class="k">Input</div><h4>Photo</h4><p>One plant, phone camera. No setup.</p></div><div class="ar">→</div>
+<div class="b"><div class="k">Model</div><h4>Computer vision</h4><p>Trained for one question: is this plant okay?</p></div><div class="ar">→</div>
+<div class="b"><div class="k">Score</div><h4>Two states</h4><div class="out"><div id="h"></div><div id="n"></div></div></div><div class="ar">→</div>
+<div class="b hl"><div class="k">Always</div><h4>A next step</h4><p>Something to do today, and when to scan again.</p></div>
+</div>
+<div class="not"><span class="y">Is my plant okay?</span><span>Which disease is it?</span><span>Expert jargon</span></div>
+</div>
+<script src="_gd.js"></script><script>h.innerHTML=leaf("happy",30)+"Happy";n.innerHTML=leaf("help",30)+"Needs help"</script></body></html>
