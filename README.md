@@ -14,27 +14,6 @@ assets/<project>/       every image, exported (no live widgets)
 tools/                  scripts that regenerate the images and QA the site (not deployed)
 ```
 
-## Before you ship
-
-**1. Zero TODOs.** Every unknown is wrapped in `<span class="todo">` and shows up as a yellow highlight. Find them:
-
-```sh
-grep -c 'class="todo"' *.html             # lines with a TODO, per file: every file should say 0
-grep -o 'class="todo"' *.html | wc -l     # exact total
-grep -n 'class="todo"' *.html             # see what's left
-```
-
-The browser console also logs the count and text of each TODO on page load.
-
-**2. Zero em dashes.**
-
-```sh
-grep -n $'\u2014' *.html *.css *.js     # em dash; should print nothing
-```
-
-**3. Permissions.**
-- [ ] Fetch.ai OK to publish the Fan Concierge case study (no teammate names, internal repos, or staging URLs are on the page; keep it that way)
-- [ ] Teammates OK with StartNOW screenshots, repo link, and the $30K seed offer being public
 
 **4. QA pass** (optional, needs Node + Google Chrome):
 
