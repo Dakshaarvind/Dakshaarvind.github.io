@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FireSight · Daksha Arvind</title>
+  <meta name="description" content="A drone-to-smart-glasses wildfire awareness system. Case study on scoping an AI-to-wearable experience, the PRD, and the G2 glasses app. Hackathon winner at LA Hacks AI Hackathon 2026.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d4532b'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-style='italic' font-size='38' text-anchor='middle' fill='%23fff'%3Ed%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script>document.documentElement.classList.remove("no-js")</script>
+</head>
+<body class="p-fs">
+
+<header class="wrap nav">
+  <a class="nav-name" href="index.html">Daksha Arvind <span>/ Meow</span></a>
+  <nav><ul><li><a href="index.html#work">Projects</a></li><li><a href="index.html#about">About</a></li><li><a href="index.html#contact">Contact</a></li></ul></nav>
+</header>
+
+<main>
+  <div class="wrap cs-top">
+    <a class="back" href="index.html#work">← All projects</a>
+    <div class="cs-eyebrow">
+      <span class="eyebrow">Robotics · AI · Wearables · LA Hacks 2026</span>
+      <span class="status">Winner</span>
+    </div>
+    <h1 class="cs-title">FireSight</h1>
+    <p class="cs-sub">Drones already see the fire. The people standing near it usually don't get that view. FireSight takes what a drone sees and puts it on smart glasses as one line of text the wearer can read without stopping.</p>
+
+    <dl class="meta">
+      <div><dt>My role</dt><dd>Product (PRD) + glasses app</dd></div>
+      <div><dt>Team</dt><dd>4 people</dd></div>
+      <div><dt>Timeline</dt><dd>Oct 17 to 18, 2026</dd></div>
+    </dl>
+
+    <figure class="cs-hero">
+      <img src="assets/firesight/fs-hero.jpg" alt="The FireSight command dashboard: a 3D map of the UCLA campus with a live drone camera feed, a glasses wearer marker labeled G2 walking 100%, an AI-marked hazard region, and a G2 display card reading WARNING, Demo fire about 210 m NE, Closing in, Avoid heading NE.">
+    </figure>
+    <p class="cs-cap">The command dashboard: drone feed, AI-marked hazards, and every glasses wearer on one live map. Real screenshot.</p>
+  </div>
+
+  <div class="wrap-text">
+
+    <!-- 01 -->
+    <section class="cs-section reveal">
+      <p class="num-label">01 / The Problem</p>
+      <h2>The aerial view stops at a screen.</h2>
+      <p class="lead">Think of a hiker on a ridge when smoke rolls in, or a firefighter on the line. They need three answers: where is the fire, how far away is it, and is it getting closer? Usually nobody can tell them.</p>
+      <p>Drones fly over wildfires every day, but their footage goes to a command post. Crews in the field hear about it secondhand over the radio. Tracking tools run on phones and tablets, so you have to stop and look down to use them. Burnovers, where a crew gets caught by an advancing fire front, have historically caused about one in five wildland firefighter deaths.</p>
+      <blockquote class="pull">
+        <small>Problem statement</small>
+        How might someone near a fire get the drone's view of it, measured from where they're standing, without taking their eyes or hands off what they're doing?
+      </blockquote>
+    </section>
+
+    <section class="reveal">
+      <div class="stats">
+        <div class="stat"><b class="sm">Winner</b><strong>Hackathon win</strong><span>AI Hackathon 2026 by LA Hacks</span></div>
+        <div class="stat"><b>5s</b><strong>Telemetry loop</strong><span>Wearer GPS, motion and battery back to the dashboard</span></div>
+        <div class="stat"><b>576×288</b><strong>Display</strong><span>16 shades of green, about 9 short lines</span></div>
+        <div class="stat"><b>4</b><strong>People</strong><span>Drone, AI, dashboard, glasses</span></div>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="cs-section reveal">
+      <p class="num-label">02 / Research &amp; Findings</p>
+      <h2>Constraints decided the MVP.</h2>
+      <p>I looked at what's already out there (command-post drone feeds, the Forest Service's TAK tracking pilot, helmet thermal displays), then tested on the real glasses early and often. Most of what shaped the product came from those hardware tests.</p>
+      <div class="cards c2">
+        <div class="card"><span class="k">Finding</span><h4>The info is about the fire, not about you</h4><p>Today's tools tell you where the fire is. Someone on the ground needs distance and direction from their own position, updated as they move.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Existing tracking is slow and heads-down</h4><p>In an early field pilot of the Forest Service's tracking tool, positions updated about every two minutes, and using it meant looking down at a screen.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>The display is tiny</h4><p>576×288 pixels, 16 shades of green, about nine short lines. Anything that isn't essential gets in the way.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>The AI budget is tiny too</h4><p>Gemini's free tier allowed about 20 calls a day. A demo that calls the model on every frame would use up the day's budget in seconds.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>The hardware doesn't match the docs</h4><p>Taps came in through a different event type than the docs showed, the startup page could only be created once, and the motion sensor stayed silent unless it was turned on after the display. I only found these by testing on the glasses myself.</p></div>
+        <div class="card"><span class="k">Finding</span><h4>Taking the glasses off looks like a fall</h4><p>I recorded the accelerometer while standing, nodding, walking and taking the glasses off. Removing them spiked to 2.5 g, so a naive fall detector would trigger false alarms constantly.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/firesight/fs-glasses.png" target="_blank" rel="noopener" title="Open full size"><img src="assets/firesight/fs-glasses.png" alt="The G2 glasses simulator display in green on black: WARNING 10:33 PM, Spot fire reported on East Ridge, then three short instructions: stay west of the access road, keep escape route clear, water drop expected in 5 min. A north-up mini-map on the right shows the wearer, a path, and the fire area." loading="lazy"></a>
+      <figcaption>What the wearer sees: a priority, a headline, three short instructions, and a north-up mini-map. Every word has to fit in 576×288 pixels.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <!-- 03 -->
+    <section class="cs-section reveal">
+      <p class="num-label">03 / Strategic Insights</p>
+      <h2>4 principles that shaped the product.</h2>
+      <ol class="principles">
+        <li><div><strong>Glanceable beats detailed</strong><span>A distance, a direction and a trend ("closing in") are more useful at a glance than any amount of footage.</span></div></li>
+        <li><div><strong>Relative to you</strong><span>Every number is measured from the wearer's GPS position, not from a map someone else is looking at.</span></div></li>
+        <li><div><strong>Two-way, not broadcast</strong><span>The glasses report back. A coordinator should know where everyone is and whether they saw the alert.</span></div></li>
+        <li><div><strong>State the limits plainly</strong><span>It's a safety tool, so positions are marked as approximate and it never claims precision it doesn't have. It's a prototype, not certified equipment.</span></div></li>
+      </ol>
+    </section>
+
+    <!-- 04 -->
+    <section class="cs-section reveal">
+      <p class="num-label">04 / The Solution</p>
+      <h2>FireSight: from drone to glasses and back.</h2>
+      <p>A DJI drone streams live video into a visual-odometry pipeline (DPVO) that tracks the camera and puts each frame on the map with real GPS coordinates. Gemini vision models and OpenCV find fire and smoke in each frame and place them on that map. The glasses show the nearest hazard relative to the wearer and send their position and status back to a live dashboard.</p>
+      <div class="cards c3">
+        <div class="card feature"><span class="k">See</span><h4>Drone + vision</h4><p class="sub">DJI, DPVO, GPS transform</p><p>Tracks where the camera is, so each detection can be placed on the map with real coordinates.</p></div>
+        <div class="card feature"><span class="k">Understand</span><h4>AI hazard mapping</h4><p class="sub">Gemini VLM + OpenCV</p><p>Marks fire, smoke and hazards, then writes short alerts sized for the glasses.</p></div>
+        <div class="card feature"><span class="k">Deliver</span><h4>G2 glasses app</h4><p class="sub">TypeScript, Even Hub SDK</p><p>Nearest hazard, distance, direction, trend, mini-map. SOS and man-down built in.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/firesight/fs-sos.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/firesight/fs-sos.jpg" alt="The dashboard with a red banner reading SOS: g2, 34.07026, -118.44503, click to locate. A red SOS g2 marker sits on the map, and the G2 display card reads SOS SENT, tap to cancel, WARNING, Test fire about 160 m NE, Distance holding steady, Avoid heading NE." loading="lazy"></a>
+      <figcaption>The loop closing: a wearer holds a temple, and an SOS with exact coordinates lands on the dashboard. Real screenshot.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <section class="cs-section reveal" style="margin-top:0">
+      <h3>How I developed the PRD</h3>
+      <p>I wrote the PRD for the AI-to-wearable experience, then built the G2 glasses app against it myself. In a weekend build, the PRD's job is less about documentation and more about getting four people to agree on one demo before anyone writes code. This is how I put it together.</p>
+      <ol class="principles">
+        <li><div><strong>Start from the wearer's three questions</strong><span>Where is it, how far, is it getting closer? Every feature had to answer one of them, or it didn't make the MVP.</span></div></li>
+        <li><div><strong>List the constraints before the features</strong><span>About 20 Gemini calls a day, a 576×288 display, no magnetometer, and SDK behavior that didn't match the docs. I scoped features to fit inside those limits instead of hoping the team could work around them later.</span></div></li>
+        <li><div><strong>Cut on purpose</strong><span>Voice reports, offline mode and read authentication were all reasonable ideas. I moved them to "next" so the team could ship one loop that worked end to end.</span></div></li>
+        <li><div><strong>Write acceptance criteria from the wearer's side</strong><span>An alert within seconds of opening the app, CRITICAL under 100 m, and SOS and man-down reaching the dashboard with coordinates. Drone, AI, dashboard and glasses each had a clear finish line, and they all pointed at the same demo.</span></div></li>
+      </ol>
+      <p>On the glasses side, I built everything: the TypeScript app on the Even Hub SDK, GPS and motion telemetry every 5 seconds, the display layout and mini-map, on-device fall detection, and the hands-free controls.</p>
+
+      <h3>Design decisions</h3>
+      <div class="decisions">
+        <div class="decision"><span class="n">1</span><div><h4>Design for ~20 AI calls a day</h4><p>I scoped the AI around the budget. Instead of calling Gemini on every frame, results are cached per image, and an OpenCV fallback analyzes frames locally when Gemini isn't available. The demo keeps working when the free tier runs out.</p></div></div>
+        <div class="decision"><span class="n">2</span><div><h4>One line, one map, nothing else</h4><p>I gave the 576×288 display a priority, a headline like "Fire ~160 m NE," a trend line, and a north-up mini-map with the wearer at the center. The map's scale bar zooms in as you approach, so the hazard stays on screen.</p></div></div>
+        <div class="decision"><span class="n">3</span><div><h4>Fall threshold from real data, not a guess</h4><p>I stream the accelerometer at 10 Hz. Since taking the glasses off hit 2.5 g, I set the threshold at 3 g and required stillness afterward. Then the glasses ask "Are you OK?" and only send MAN DOWN if nobody taps within 20 seconds.</p></div></div>
+        <div class="decision"><span class="n">4</span><div><h4>Hands-free controls for every action</h4><p>Hold a temple for SOS, tap to acknowledge (so command knows the alert was seen), swipe to step through hazards. Nothing needs a phone in your hand.</p></div></div>
+        <div class="decision"><span class="n">5</span><div><h4>Say what it can't do</h4><p>Directions are GPS compass bearings (the glasses have no magnetometer), and hazard positions are approximate until the drone is calibrated. Both are stated in the product, not hidden.</p></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="wrap">
+    <figure class="figure reveal">
+      <a href="assets/firesight/fs-wearer.jpg" target="_blank" rel="noopener" title="Open full size"><img src="assets/firesight/fs-wearer.jpg" alt="A close-up of the 3D map: the drone icon and an orange hazard pin near the UCLA Athletic Hall of Fame, and a blue marker labeled G2 walking 100% near Gateway Plaza." loading="lazy"></a>
+      <figcaption>Drone, AI-placed hazard and wearer on the same map. The glasses measure distance and direction from that blue dot.</figcaption>
+    </figure>
+  </div>
+
+  <div class="wrap-text">
+    <section class="reveal">
+      <p style="margin-top:8px">Read more: <a class="link-out" href="https://devpost.com/software/tim-oje76l" target="_blank" rel="noopener">Devpost ↗</a> · <a class="link-out" href="https://github.com/lily1c/la-hacks-2026" target="_blank" rel="noopener">GitHub ↗</a> · <a class="link-out" href="https://firesight-dashboard.onrender.com" target="_blank" rel="noopener">Live dashboard ↗</a></p>
+    </section>
+
+    <!-- 05 -->
+    <section class="cs-section reveal">
+      <p class="num-label">05 / The Outcome</p>
+      <h2>A full loop on real hardware, in a weekend.</h2>
+      <div class="cards c3">
+        <div class="card"><span class="n">1</span><h4>Hackathon win</h4><p>A winning project at the AI Hackathon 2026 by LA Hacks.</p></div>
+        <div class="card"><span class="n">2</span><h4>End to end, deployed</h4><p>Drone → AI → map → glasses → dashboard, running on Render. The demo needs only glasses, a phone and a browser.</p></div>
+        <div class="card"><span class="n">3</span><h4>Safety features tested for real</h4><p>SOS and man-down reach the dashboard in seconds. I tested them by actually dropping the glasses.</p></div>
+      </div>
+
+      <h3>What I'd measure next</h3>
+      <div class="cards c3">
+        <div class="card"><span class="k">Speed</span><h4>Time to alert</h4><p>Seconds from the drone seeing a hazard to the wearer seeing it. That gap is the whole product.</p></div>
+        <div class="card"><span class="k">Trust</span><h4>Acknowledgement rate</h4><p>How often wearers tap to confirm an alert. If they stop tapping, they've stopped trusting it.</p></div>
+        <div class="card"><span class="k">Safety</span><h4>False man-down rate</h4><p>False alarms per hour of wear. Too many and people turn the feature off.</p></div>
+      </div>
+
+      <h3>What's next</h3>
+      <p>Pilot with crews from agencies like the U.S. Forest Service and CAL FIRE to learn what information actually helps under pressure. A consumer mode for hikers and residents using public fire-detection data. Cues like "fire ahead-right" based on direction of travel, and crew awareness on the glasses' map.</p>
+    </section>
+
+    <section class="reflection reveal">
+      <p class="num-label">Reflection</p>
+      <h2>The constraints were the spec.</h2>
+      <p>Twenty AI calls a day and a 576-pixel screen sound like problems to work around. They ended up being the most useful input to my PRD. They made me decide what the wearer actually needs (a distance, a direction, a trend) and drop everything else. I've started treating constraints as the first draft of a spec, not as obstacles to it.</p>
+      <p>Writing acceptance criteria up front mattered more than I expected. Four people were building four pieces that only worked if they connected. Defining "done" from the wearer's side taught me that the best way to align a team isn't a status meeting, it's a shared picture of what the user should see.</p>
+      <p>And building the glasses app myself taught me that hardware doesn't care what the docs say. The biggest bugs only showed up on real glasses. Testing on the device early was the best scheduling call I made, and it's now the first thing I plan for on any hardware project.</p>
+    </section>
+
+    <nav class="cs-foot" aria-label="Case study navigation">
+      <a href="index.html#work"><small>Back</small><span>All projects</span></a>
+      <a href="mailto:dakshabarvind@gmail.com"><small>Say hi</small><span>Get in touch</span></a>
+      <a class="next" href="startnow.html"><small>Next project</small><span>StartNOW →</span></a>
+    </nav>
+  </div>
+</main>
+
+<footer class="wrap">
+  <div class="footer">
+    <span>© 2026 Daksha Arvind</span>
+    <nav><a href="mailto:dakshabarvind@gmail.com">Email</a> <a href="https://www.linkedin.com/in/daksha024/" target="_blank" rel="noopener noreferrer">LinkedIn</a> <a href="https://github.com/Dakshaarvind" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

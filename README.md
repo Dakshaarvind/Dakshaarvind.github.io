@@ -3,11 +3,12 @@
 Plain HTML + CSS, one tiny script, no build step. Open `index.html` straight from the file system and it works.
 
 ```
-index.html              home: hero, 4 project rows, about, contact
+index.html              home: hero, 5 project rows, about, contact
 fan-concierge.html      case study 1
-startnow.html           case study 2
-multi-sensor.html       case study 3
-gardening.html          case study 4
+firesight.html          case study 2
+startnow.html           case study 3
+multi-sensor.html       case study 4
+gardening.html          case study 5
 style.css               the only stylesheet (tokens at the top, per-project colors on <body class="p-xx">)
 main.js                 fade-up on scroll + logs a TODO count to the console
 assets/<project>/       every image, exported (no live widgets)
@@ -53,6 +54,7 @@ Heroes render to JPEG (they have gradients), diagrams to PNG, both at 2x.
 | Project | Visuals | Status |
 |---|---|---|
 | Fan Concierge | 4 demo screens, flow, theming, locked vs unlocked | Recreated from the PRD flow, kept as the final images. If you ever want real captures instead, drop the demo at `assets/fan-concierge/demo.html`, update the selectors in `tools/capture-demo.mjs`, and run `npm run capture-demo`. |
+| FireSight | 4 screenshots (dashboard, SOS, wearer close-up, glasses display) | All real, from the team's Devpost (devpost.com/software/tim-oje76l). No `tools/visuals/` source; they're exported straight to `assets/firesight/`. Facts come from Devpost and the public repo (lily1c/la-hacks-2026). |
 | StartNOW | Boardroom hero, relay diagram, persona matrix, 1 real screenshot | Hero is recreated; its agent lines are copied from a real session, risk scores are illustrative (labeled on the image). `sn-disagree.png` is the team's real Devpost screenshot. Facts come from Devpost and the public repo (srikondapalli1/startup-sim). |
 | Multi-Sensor | Architecture, dashboard concept, sprint timeline | Diagrams. Dashboard values are generated and labeled "Simulated data" on the image. The timeline doesn't assign shipped work to specific sprints. |
 | Gardening | 3 concept phone screens, health states, scan flow | Labeled "Concept screens". Swap in the team's real screens when they exist. |
